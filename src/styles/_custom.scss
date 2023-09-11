@@ -1,0 +1,61 @@
+.display-grid-important{
+  display: grid !important; 
+}
+
+.display-grid-input-button{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 10px;
+  width: 100%;
+}
+
+
+.login-button span {
+  font-size: 14px !important;
+  padding: 0.2rem 0rem !important;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 0.5rem 1rem;
+}
+
+.p-button{
+  padding: 0.5rem 1rem ;
+  font-size: 13px ;
+}
+
+.footer{
+  background-color: #3c4b64;
+  color: white;
+  padding: .75rem;
+}
+
+.dropdown-menu {
+  font-size: 14px;
+}
+
+.dropdown-item:active{
+  background-color: #d7dadd;
+  color: black;
+}
+
+.p-button.p-button-icon-only {
+  width: 2.5rem;
+  padding: 0.6rem 0;
+  border-radius: 100%;
+}
+
+
+.form-group {
+  margin-top: 2rem;
+}
+
+@media (min-width: 1400px){
+  .container-lg{
+    max-width: 1720px !important;
+  }
+}
+
+.p-breadcrumb{
+    border: none;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { navItems } from './data/items';
 
 @Component({
   selector: 'app-panel-layout',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./panel-layout.component.scss']
 })
 export class PanelLayoutComponent {
+  public navItems;
+
+  constructor(){
+    this.navItems = navItems;
+
+  }
 
 }

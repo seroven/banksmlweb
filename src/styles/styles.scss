@@ -1,8 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+// PrimeNg
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
-@import "./custom";
+
+// CoreUI
+@import "@coreui/coreui/scss/coreui";
+@import "layout";
+@import "fixes";
+@import "examples";
+
+// Custom
+@import "custom";
 
 @font-face {
   font-family: 'Poppins';
