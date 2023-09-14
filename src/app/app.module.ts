@@ -7,6 +7,9 @@ import { PanelLayoutComponent } from './layout/panel-layout/panel-layout.compone
 import { PanelLayoutModule } from './layout/panel-layout/panel-layout.module';
 import { ToastModule } from 'primeng/toast';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ToastService } from './shared/services/toast.service';
+import { MessageService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent  
@@ -15,11 +18,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     PanelLayoutModule,
+    BrowserAnimationsModule,
     IconModule,
     ToastModule,
     HttpClientModule
   ],
-  providers: [IconSetService],
+  providers: [IconSetService, ToastService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

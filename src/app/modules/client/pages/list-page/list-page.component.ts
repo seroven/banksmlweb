@@ -12,8 +12,11 @@ export class ListPageComponent implements OnInit, OnDestroy{
 
   private suscription:Subscription|null;
   public rows:ClientReadInterface[] = [];
-
   public loadRows:boolean = false;
+
+  visibleRegisterModal = false;
+  visibleEditModal = false;
+  visibleDeleteModal = false;
 
   constructor(private clientService:ClientService){    
     this.suscription = null;
@@ -23,7 +26,7 @@ export class ListPageComponent implements OnInit, OnDestroy{
     this.loadRows = true;
     this.suscription = this.clientService.clientList$
     .pipe(
-      switchMap(() => this.clientService.get())
+      switchMap(() => this.clientService.getClients())
     )
     .subscribe({
       next: response => {
@@ -42,5 +45,16 @@ export class ListPageComponent implements OnInit, OnDestroy{
       this.suscription?.unsubscribe();
   }
 
+  toggleRegisterModal() { this.visibleRegisterModal = !this.visibleRegisterModal}
+  
+  toggleEditModal() { this.visibleEditModal = !this.visibleEditModal}
+
+  toggleDeleteModal() { this.visibleDeleteModal = !this.visibleDeleteModal}
+
+  selectEditClient(client:ClientReadInterface){
+    console.log(client);
+    this.clientService.selectedClient$.next(client);
+    this.visibleEditModal = true;
+  }
 
 }

@@ -6,7 +6,9 @@ import { NewPageComponent } from './pages/new-page/new-page.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { PrimengSharedModule } from 'src/app/shared/modules/primeng-shared.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -17,8 +19,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ClientRoutingModule,
-    PrimengSharedModule,
+    PrimengSharedModule
   ],
 })
 export class ClientModule { }

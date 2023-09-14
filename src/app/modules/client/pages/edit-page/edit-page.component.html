@@ -1,1 +1,230 @@
-<p>edit-page works!</p>
+
+<div class="flex justify-content-center">
+  <p-dialog header="Edit client" [(visible)]="visible" [modal]="true" [breakpoints]="{ '960px': '75vw' }" [style]="{ width: '50vw' }" [closable]="false" [draggable]="false">
+      <form [formGroup]="formClient">
+
+        <div class="formgrid grid">
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <input
+                id="dni"
+                formControlName="dni"
+                type="text"
+                placeholder="example"
+                pInputText
+                [class]="validateFormClient.classValidated('dni', 'w-full')"
+              />
+              <label for="dni">DNI <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('dni')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('dni', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('dni', 'pattern')">
+                {{ errorInputMessage.dni }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('dni', 'maxlength')">
+                {{ errorInputMessage.maxLength + '8' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <input
+                id="phone"
+                formControlName="phone"
+                type="text"
+                placeholder="example"
+                pInputText
+                [class]="validateFormClient.classValidated('phone', 'w-full')"
+              />
+              <label for="phone">Phone <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('phone')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('phone', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('phone', 'pattern')">
+                {{ errorInputMessage.onlyLetters }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('phone', 'maxlength')">
+                {{ errorInputMessage.maxLength + '11' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <input
+                id="names"
+                formControlName="names"
+                type="text"
+                placeholder="example"
+                pInputText
+                [class]="validateFormClient.classValidated('names', 'w-full')"
+              />
+              <label for="names" >Name <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('names')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('names', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('names', 'pattern')">
+                {{ errorInputMessage.onlyLetters }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('names', 'maxlength')">
+                {{ errorInputMessage.maxLength + '100' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <input
+                id="lastnames"
+                formControlName="lastnames"
+                type="text"
+                placeholder="example" 
+                pInputText
+                [class]="validateFormClient.classValidated('lastnames', 'w-full')"
+              />
+              <label for="lastnames" >Lastname <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('lastnames')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('lastnames', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('lastnames', 'pattern')">
+                {{ errorInputMessage.onlyLetters }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('lastnames', 'maxlength')">
+                {{ errorInputMessage.maxLength + '100' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <input
+                id="address"
+                formControlName="address"
+                type="text"
+                placeholder="example" 
+                pInputText
+                [class]="validateFormClient.classValidated('address', 'w-full')"
+              />
+              <label for="address" >Address <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('address')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('address', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('address', 'maxlength')">
+                {{ errorInputMessage.maxLength + '150' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <input
+                id="email_address"
+                formControlName="email_address"
+                type="text"
+                placeholder="example" 
+                pInputText
+                [class]="validateFormClient.classValidated('email_address', 'w-full')"
+              />
+              <label for="email_address" >Email <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('email_address')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('email_address', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('email_address', 'pattern')">
+                {{ errorInputMessage.email }}
+              </div>
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('email_address', 'maxlength')">
+                {{ errorInputMessage.maxLength + '150' }}
+              </div>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <p-dropdown 
+                inputId="district"
+                [options]="districts"
+                [filter]="true"
+                formControlName="district"
+                placeholder="Select a district"
+                optionLabel="name"
+                appendTo="body"
+                (onChange)="onChangeDistrict()"
+                [class]="validateFormClient.classValidated('district', 'w-full display-grid-important')">
+              </p-dropdown>
+              <label for="district" >Select a district <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('district')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('district', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+            </div>
+          </div>
+
+          <div class="field col-12 md:col-6 form-group">
+            <span class="p-float-label">
+              <p-dropdown 
+                [options]="provinces"
+                [filter]="true"
+                formControlName="province"
+                placeholder="Select a province"
+                optionLabel="name"
+                appendTo="body"
+                inputId="province"
+                [class]="validateFormClient.classValidated('province', 'w-full display-grid-important')">
+              </p-dropdown>
+              <label for="province">Select a province <span class="p-error">*</span> </label>
+              
+            </span>
+            <div *ngIf="validateFormClient.isNotValid('province')">
+              <div class="p-error" *ngIf="validateFormClient.isNotRuleValid('province', 'required')">
+                {{ errorInputMessage.required }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        
+        
+
+
+        <div class="form-group">
+          
+          <div class="flex justify-content-between flex-wrap w-full">
+            <div class="mb-2">
+              <p-button label="Guardar" [loading]="loadSubmit" (onClick)="submit()"  [disabled]="!formClient.valid" ></p-button>
+            </div>
+            <div>
+              <p-button label="Limpiar" styleClass="p-button-success" class="mr-2" (onClick)="reset()"></p-button>
+              <p-button label="Cancelar" styleClass="p-button-danger" (onClick)="cancel()"></p-button>
+
+            </div>
+            
+          </div>
+        </div>
+
+       
+      </form>
+  </p-dialog>
+</div>

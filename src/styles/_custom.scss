@@ -24,6 +24,10 @@
   font-size: 13px ;
 }
 
+.p-dialog .p-dialog-header {
+  padding: 1rem 1.5rem;
+}
+
 .footer{
   background-color: #3c4b64;
   color: white;
@@ -47,7 +51,7 @@
 
 
 .form-group {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 @media (min-width: 1400px){
