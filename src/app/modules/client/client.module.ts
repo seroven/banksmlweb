@@ -9,6 +9,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     ReactiveFormsModule,
     ClientRoutingModule,
-    PrimengSharedModule
+    SharedModule
   ],
 })
 export class ClientModule { }

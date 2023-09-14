@@ -30,6 +30,10 @@ export class ClientService {
     return this.httpClient.put<ClientReadInterface>(`${this.baseUrl}/${this.groupName}/update/${client.id}`, client);
   }
 
+  deleteClient(id:number):Observable<ClientReadInterface>{
+    return this.httpClient.delete<ClientReadInterface>(`${this.baseUrl}/${this.groupName}/delete/${id}`);
+  }
+
   
 
 

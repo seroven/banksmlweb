@@ -2,6 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { Subscription, switchMap } from 'rxjs';
 import { ClientReadInterface } from '../../interfaces/client-read.interface';
+import { ToastService } from 'src/app/shared/services/toast.service';
+import { ModalDeleteService } from 'src/app/shared/services/modal-delete.service';
+import { EnumTypeMessage } from 'src/app/shared/constants/type-message.enum';
 
 @Component({
   selector: 'app-list-page',
@@ -18,7 +21,10 @@ export class ListPageComponent implements OnInit, OnDestroy{
   visibleEditModal = false;
   visibleDeleteModal = false;
 
-  constructor(private clientService:ClientService){    
+  clientIdSelectedToDelete:number|null = null;
+
+
+  constructor(private clientService:ClientService, private modalDeleteService:ModalDeleteService, private toastService:ToastService){    
     this.suscription = null;
   } 
 
@@ -55,6 +61,28 @@ export class ListPageComponent implements OnInit, OnDestroy{
     console.log(client);
     this.clientService.selectedClient$.next(client);
     this.visibleEditModal = true;
+  }
+
+  selectDeleteClient(client:ClientReadInterface){
+    this.clientIdSelectedToDelete = client.id;
+    this.visibleDeleteModal = true;
+  }
+
+  deleteClient(){
+    if (!this.clientIdSelectedToDelete) return;
+    this.modalDeleteService.onLoading();
+    this.clientService.deleteClient(this.clientIdSelectedToDelete).subscribe({
+      next: response => {
+        this.modalDeleteService.offLoading();
+        this.toastService.showMessage(EnumTypeMessage.DELETE_SUCCESS);
+        this.clientService.clientList$.next();
+        this.visibleDeleteModal = false;
+      },
+      error: err => {
+        this.modalDeleteService.offLoading();
+        this.toastService.showMessage(EnumTypeMessage.OPERATION_ERROR);
+      }
+    })
   }
 
 }

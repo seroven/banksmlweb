@@ -39,7 +39,7 @@
             <td>{{ client.email_address }}</td>
             <td>
                 <button pButton pRipple icon="pi pi-pencil" class="p-button-warning mr-2" (click)="selectEditClient(client)"></button>
-                <button pButton pRipple icon="pi pi-trash" class="p-button-danger"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="selectDeleteClient(client)"></button>
             </td>
         </tr>
     </ng-template>
@@ -47,4 +47,4 @@
 
 <app-new-page (onHidePage)="toggleRegisterModal()" [visible]="visibleRegisterModal"></app-new-page>
 <app-edit-page (onHidePage)="toggleEditModal()" [visible]="visibleEditModal"></app-edit-page>
-<!-- <app-modal-delete (onConfirm)="deleteUser()" (onCancel)="toggleDeleteModal()" [visible]="visibleDeleteModal"></app-modal-delete>  -->
+<app-modal-delete (onConfirm)="deleteClient()" (onCancel)="toggleDeleteModal()" [visible]="visibleDeleteModal"></app-modal-delete> 

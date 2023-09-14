@@ -1,0 +1,15 @@
+<div class="flex justify-content-center">
+  <p-dialog [(visible)]="visible" [modal]="true" [breakpoints]="{ '1270px': '30vw', '1080px': '40vw', '800px': '60vw' }" [style]="{ width: '25vw' }" [closable]="false" [draggable]="false">
+
+    <div class=" flex align-items-center flex-column">
+      <i class="pi pi-exclamation-circle" style="font-size: 3.5rem; color: #ffc107;" ></i>
+      <span class="text-xl mb-2 mt-2 font-semibold">¿Está seguro?</span>
+      <span class="text-center">El registro será eliminado y no podrá ser recuperado</span>
+      <div class="mt-4">
+        <p-button label="Sí, borrar ahora" [loading]="loading" styleClass="p-button-danger" (onClick)="onConfirm.emit()"></p-button>
+        <p-button label="Cancelar" class="ml-2" styleClass="p-button-secondary" (onClick)="onCancel.emit()"></p-button>
+      </div>
+    </div>
+
+  </p-dialog>
+</div>
