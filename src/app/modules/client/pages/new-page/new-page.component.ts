@@ -40,8 +40,7 @@ export class NewPageComponent {
       district: new FormControl(null, [Validators.required, Validators.maxLength(50)]),
       province: new FormControl(null, [Validators.required, Validators.maxLength(50)]),
       phone: new FormControl(null, [Validators.required, Validators.pattern(RegexValidator.onlyNumbers), Validators.maxLength(11)]),
-      email_address: new FormControl(null, [Validators.required, Validators.pattern(RegexValidator.email), Validators.maxLength(150)]),
-      state: new FormControl(true)
+      email_address: new FormControl(null, [Validators.required, Validators.pattern(RegexValidator.email), Validators.maxLength(150)])
     })
     this.validateFormClient = new ValidateInputClass(this.formClient);  
   }
@@ -54,7 +53,8 @@ export class NewPageComponent {
     this.clientService.saveClient({
       ...client,
       district: client.district.name,
-      province: client.province.name
+      province: client.province.name,
+      state: true
     }).subscribe({
       next: response  => {
         this.loadSubmit = false;

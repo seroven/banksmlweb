@@ -83,7 +83,8 @@ export class EditPageComponent implements OnDestroy, OnInit{
     this.clientService.editClient({
       ...client,
       district: client.district.name,
-      province: client.province.name
+      province: client.province.name,
+      state: true
     }).subscribe({
       next: response  => {
         this.loadSubmit = false;
